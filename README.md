@@ -4,7 +4,7 @@ The third project at school 42 requires you to build a function that reads a fil
 
 The function is dependent on usage of functions created in our first project ‘libft’, which is included in this repository. 
 
-My version uses a linked list to build the string produced by calls to read. When a new-line character is found in the sring built by read, its index is stored, and the string before this index is assigned to *line. The string after is assigned to the static char pointer *leftover, which is checked during successive calls to get_next_line, before read is called again.
+My version utilises a static linked list. When a new-line character is found in the sring built by read, its index is found, and the string before this index is assigned to *line, while the leftover is assigned to a struct that contains a char pointer (*leftover) and an int fd. Each time a different fd is piped in, a new struct is created, and a node with a pointer to it is added to the linked list. During successive calls to get_next_line, the list is checked to see if there is already any 'leftover' string for that fd, before calling read again.
 
 Prototype: 
 
