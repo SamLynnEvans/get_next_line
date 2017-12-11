@@ -23,16 +23,6 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-typedef struct		s_gets
-{
-	char		*line_content;
-	char		*leftover;
-	char		*send_up;
-	int		content_size;
-	int		nl_total;
-	int		end;
-}			t_gets;
-
 int	get_next_line(int fd, char **line);
 
 #endif
