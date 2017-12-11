@@ -12,7 +12,7 @@
 
 # ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE 7
+# define BUFF_SIZE 1000
 # define OPEN_MAX 1000
 # define EMPTY_LINE 2
 # define GET_NEXT_LINE 3
@@ -22,6 +22,12 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include "libft/libft.h"
+
+typedef struct		s_gets
+{
+	char		*leftover;
+	int			fd;
+}					t_gets;
 
 int	get_next_line(int fd, char **line);
 
