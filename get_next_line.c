@@ -10,14 +10,11 @@ int	read_from_file(int fd, char **line)
 		if (ret == -1)
 			return (-1);
 		buff[ret] = '\0';
-		if (*line == NULL)
-			*line = ft_strdup(buff);
-		else
-			*line = ft_strjoin_free(*line, buff);
+		*line = ft_strjoin_free(*line, buff);
 		if (ft_strchr(buff, '\n') != NULL)
 			break ;
 	}
-	if (*line == NULL && ret == 0)
+	if (*line == NULL)
 		return (0);
 	return (1);
 }
@@ -34,11 +31,12 @@ t_gets *find_gets(int	fd, t_list **list)
 			return ((t_gets *)new->content);
 		new = new->next; 
 	}
-	gets = malloc(sizeof(t_gets));
+	if(!(gets = malloc(sizeof(t_gets))))
+		return (NULL);
 	gets->leftover = NULL;
 	gets->fd = fd;
-	new = malloc(sizeof(t_list));
-	new->content = (void *)gets;
+	if ((new = ft_lstnew_ptr((void *)gets, 0)) == NULL)
+		return (NULL);
 	ft_lstadd(list, new);
 	return (gets);
 }
@@ -51,8 +49,8 @@ void	split_string_at_nl(char **line, t_gets *gets)
 
 	if (*line == NULL)
 		return ;
-	len = ft_strlen(*line);
 	i = 0;
+	len = ft_strlen(*line);
 	tmp = *line;
 	while (tmp[i])
 	{
@@ -99,10 +97,9 @@ int get_next_line(int fd, char **line)
 	t_gets			*gets;
 	
 	end = 1;
-	if (line == NULL || fd == -1)
+	if (line == NULL || fd == -1 || (gets = find_gets(fd, &list)) == NULL)
 		return (-1);
 	*line = NULL;
-	gets = find_gets(fd, &list);	
 	if (check_leftover(&(gets->leftover), line))
 		end = read_from_file(fd, line);
 	split_string_at_nl(line, gets);

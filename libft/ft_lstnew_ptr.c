@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slynn-ev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/15 11:17:30 by slynn-ev          #+#    #+#             */
-/*   Updated: 2017/12/15 12:35:49 by slynn-ev         ###   ########.fr       */
+/*   Created: 2017/12/05 10:37:32 by slynn-ev          #+#    #+#             */
+/*   Updated: 2017/12/15 13:58:02 by slynn-ev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin_free(char const *s1, char const *s2)
+t_list		*ft_lstnew_ptr(void const *content, size_t content_size)
 {
-	int			len;
-	char		*dst;
-	char		*tmp;
-	int			i;
+	t_list *tmp;
 
-	i = 0;
-	if (s2 == NULL)
+	if (!(tmp = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
-	if (s1 == NULL)
-		return (ft_strdup(s2));
-	if (!(len = ft_strlen((char *)s1) + ft_strlen((char *)s2)))
+	if (content == NULL)
 		return (NULL);
-	if ((dst = (char *)malloc(sizeof(char) * (len + 1))))
-	{
-		tmp = (char *)s1;	
-		while (*s1)
-			dst[i++] = *s1++;
-		while (*s2)
-			dst[i++] = *s2++;
-		dst[i] = '\0';
-		free((void *)tmp);
-		return (dst);
-	}
-	return (NULL);
+	tmp->content = (void *)content;
+	tmp->content_size = content_size;
+	tmp->next = NULL;
+	return (tmp);
 }

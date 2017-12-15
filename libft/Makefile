@@ -1,5 +1,6 @@
 SRC = ft_atoi.c \
 ft_bzero.c \
+ft_lstnew_ptr.c \
 ft_intdebug.c \
 ft_isalnum.c \
 ft_strjoin_free.c \
