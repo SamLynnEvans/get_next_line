@@ -6,11 +6,11 @@
 /*   By: slynn-ev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 11:59:20 by slynn-ev          #+#    #+#             */
-/*   Updated: 2017/12/07 21:01:36 by slynn-ev         ###   ########.fr       */
+/*   Updated: 2017/12/15 14:46:04 by slynn-ev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # define BUFF_SIZE 1000
 # define OPEN_MAX 1000
@@ -29,6 +29,6 @@ typedef struct		s_gets
 	int			fd;
 }					t_gets;
 
-int	get_next_line(int fd, char **line);
+int					get_next_line(int fd, char **line);
 
 #endif

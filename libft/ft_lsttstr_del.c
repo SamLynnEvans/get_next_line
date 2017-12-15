@@ -6,7 +6,7 @@
 /*   By: slynn-ev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 16:59:23 by slynn-ev          #+#    #+#             */
-/*   Updated: 2017/12/07 15:43:25 by slynn-ev         ###   ########.fr       */
+/*   Updated: 2017/12/15 14:56:52 by slynn-ev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ char	*ft_lsttstr_del(t_list **list)
 		count += tmp->content_size;
 		tmp = tmp->next;
 	}
-	dst = (char *)ft_memalloc(count + 1);
+	if (!(dst = (char *)ft_memalloc(count + 1)))
+		return (NULL);
 	while (*list != NULL)
 	{
 		tmp = *list;

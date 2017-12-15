@@ -6,7 +6,7 @@
 /*   By: slynn-ev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 11:17:30 by slynn-ev          #+#    #+#             */
-/*   Updated: 2017/12/15 12:35:49 by slynn-ev         ###   ########.fr       */
+/*   Updated: 2017/12/15 15:04:28 by slynn-ev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strjoin_free(char const *s1, char const *s2)
 		return (NULL);
 	if ((dst = (char *)malloc(sizeof(char) * (len + 1))))
 	{
-		tmp = (char *)s1;	
+		tmp = (char *)s1;
 		while (*s1)
 			dst[i++] = *s1++;
 		while (*s2)

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: slynn-ev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/15 14:46:20 by slynn-ev          #+#    #+#             */
+/*   Updated: 2017/12/15 14:47:51 by slynn-ev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
-int	read_from_file(int fd, char **line)
+int		read_from_file(int fd, char **line)
 {
 	int		ret;
 	char	buff[BUFF_SIZE + 1];
@@ -19,7 +31,7 @@ int	read_from_file(int fd, char **line)
 	return (1);
 }
 
-t_gets *find_gets(int	fd, t_list **list)
+t_gets	*find_gets(int fd, t_list **list)
 {
 	t_gets	*gets;
 	t_list	*new;
@@ -29,9 +41,9 @@ t_gets *find_gets(int	fd, t_list **list)
 	{
 		if (((t_gets *)new->content)->fd == fd)
 			return ((t_gets *)new->content);
-		new = new->next; 
+		new = new->next;
 	}
-	if(!(gets = malloc(sizeof(t_gets))))
+	if (!(gets = malloc(sizeof(t_gets))))
 		return (NULL);
 	gets->leftover = NULL;
 	gets->fd = fd;
@@ -43,9 +55,9 @@ t_gets *find_gets(int	fd, t_list **list)
 
 void	split_string_at_nl(char **line, t_gets *gets)
 {
-	int	i;
-	int	len;
-	char *tmp;
+	int		i;
+	int		len;
+	char	*tmp;
 
 	if (*line == NULL)
 		return ;
@@ -90,12 +102,12 @@ int		check_leftover(char **leftover, char **line)
 	return (1);
 }
 
-int get_next_line(int fd, char **line)
+int		get_next_line(int fd, char **line)
 {
 	static t_list	*list;
 	int				end;
 	t_gets			*gets;
-	
+
 	end = 1;
 	if (line == NULL || fd == -1 || (gets = find_gets(fd, &list)) == NULL)
 		return (-1);

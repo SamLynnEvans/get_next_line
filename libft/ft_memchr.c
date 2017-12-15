@@ -6,7 +6,7 @@
 /*   By: slynn-ev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 10:42:19 by slynn-ev          #+#    #+#             */
-/*   Updated: 2017/12/05 15:17:37 by slynn-ev         ###   ########.fr       */
+/*   Updated: 2017/12/15 14:58:42 by slynn-ev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	a = (unsigned char)c;
 	src = s;
-	p = malloc(1);
 	i = 0;
 	while (i < n)
 	{
