@@ -2,6 +2,7 @@ SRC = ft_atoi.c \
 ft_bzero.c \
 ft_intdebug.c \
 ft_isalnum.c \
+ft_strjoin_free.c \
 ft_isalpha.c \
 ft_isascii.c \
 ft_isdigit.c \
@@ -68,7 +69,7 @@ NAME = libft.a
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(OBJ)
 	gcc -c -Wall -Wextra -Werror $(SRC) -Ilibft.h
 	ar rc $(NAME) $(OBJ)
 

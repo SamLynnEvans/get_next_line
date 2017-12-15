@@ -6,7 +6,7 @@
 /*   By: slynn-ev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 11:52:39 by slynn-ev          #+#    #+#             */
-/*   Updated: 2017/12/07 15:43:03 by slynn-ev         ###   ########.fr       */
+/*   Updated: 2017/12/15 11:48:24 by slynn-ev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct		s_list
 
 char				*ft_lsttstr_del(t_list **list);
 char				*ft_strcat(char *dst, const char *src);
+char				*ft_strjoin_free(char const *s1, char const *s2);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_strdebug(char *str, char *name);
 void				ft_print_list(t_list *list);

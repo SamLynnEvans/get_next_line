@@ -4,7 +4,6 @@ int	read_from_file(int fd, char **line)
 {
 	int		ret;
 	char	buff[BUFF_SIZE + 1];
-	char	*tmp;
 
 	while ((ret = read(fd, buff, BUFF_SIZE)) != 0)
 	{
@@ -14,11 +13,7 @@ int	read_from_file(int fd, char **line)
 		if (*line == NULL)
 			*line = ft_strdup(buff);
 		else
-		{
-			tmp = *line;
-			*line = ft_strjoin(*line, buff);
-			free(tmp);
-		}
+			*line = ft_strjoin_free(*line, buff);
 		if (ft_strchr(buff, '\n') != NULL)
 			break ;
 	}
